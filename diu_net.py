@@ -21,7 +21,6 @@ def dice_coef_loss(y_true, y_pred):
 
 def di_block(inputs, fn, batch_norm = True, upsampling = False, downsampling = False):
     
-
     f1 = Conv2D(fn, (1, 1), activation = 'relu')(inputs)
     f1 = Conv2D(fn, (3, 3), activation = 'relu', dilation_rate = (1, 1), padding = 'same', kernel_initializer = 'he_normal')(f1)
 
@@ -54,7 +53,7 @@ def di_block(inputs, fn, batch_norm = True, upsampling = False, downsampling = F
     else:
         return output
 
-def diu_net_model(IMG_LEN, IMG_WID, IMG_DEP):
+def diu_net_model(IMG_LEN = 256, IMG_WID = 256, IMG_DEP = 3):
 
     assert IMG_LEN == IMG_WID, 'Height and Width of the image must be same.'
     assert IMG_LEN % 16 == 0, 'Input height and width must be a multiple of 16.'
