@@ -29,8 +29,8 @@ for image in img_list:
     print(f'Creating patches of image and masks for {image}')
 
     count = 0
-    for i in range(0, 769, 128):
-        for j in range(0, 769, 128):
+    for i in range(0, 769, 256):
+        for j in range(0, 769, 256):
             img_patch = Image.fromarray(im[0 + i: 256 + i, 0 + j: 256 + j])
             msk_patch = Image.fromarray(ms[0 + i: 256 + i, 0 + j: 256 + j])
             img_patch.save(patched_img__dir + '\\' + image + '_' + str(count) + '.png')
