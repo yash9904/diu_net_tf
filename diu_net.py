@@ -21,7 +21,6 @@ def dice_coef_loss(y_true, y_pred):
 
 def di_block(inputs, fn, batch_norm = True, upsampling = False, downsampling = False):
     
-
     f1 = Conv2D(fn, (1, 1), activation = 'relu')(inputs)
     f1 = Conv2D(fn, (3, 3), activation = 'relu', dilation_rate = (1, 1), padding = 'same', kernel_initializer = 'he_normal')(f1)
 
