@@ -54,7 +54,7 @@ def di_block(inputs, fn, batch_norm = True, upsampling = False, downsampling = F
     else:
         return output
 
-def diu_net_model(IMG_LEN, IMG_WID, IMG_DEP):
+def diu_net_model(IMG_LEN = 256, IMG_WID = 256, IMG_DEP = 3):
 
     assert IMG_LEN == IMG_WID, 'Height and Width of the image must be same.'
     assert IMG_LEN % 16 == 0, 'Input height and width must be a multiple of 16.'
