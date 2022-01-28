@@ -2,6 +2,7 @@ from os.path import isdir, join
 from os import mkdir, listdir
 import numpy as np
 from PIL import Image
+from tqdm import tqdm
 
 if not isdir('train'):
     mkdir('train')
@@ -22,11 +23,9 @@ img_list = [f[: -4] for f in listdir(img_root)]
 
 print('Creating train patches ...')
 
-for image in img_list:
+for image in tqdm(img_list, desc = 'Generating Patches...'):
     im = np.array(Image.open(join(img_root, image + '.tif')).resize((1024, 1024)), dtype = np.uint8)
     ms = np.array(Image.open(join(mask_root, image + '.png')).resize((1024, 1024)), dtype = np.uint8)
-    
-    print(f'Creating patches of image and masks for {image}')
 
     count = 0
     for i in range(0, 769, 256):
@@ -36,6 +35,6 @@ for image in img_list:
             img_patch.save(patched_img__dir + '\\' + image + '_' + str(count) + '.png')
             msk_patch.save(patched_masks_dir + '\\' + image + '_' + str(count) + '.png')
             count += 1
-    print(f'Patches successfully generated for {image}')
+    
 
 print('Train patches successfully generated!')
