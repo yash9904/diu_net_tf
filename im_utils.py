@@ -5,7 +5,7 @@ import numpy as np
 from tqdm import tqdm
 from PIL import Image
 
-class augmentation:
+class Augmentation:
     def __init__(self, imdir, msdir):
         self.imlist = [f[: -4] for f in os.listdir(imdir)]
         self.imdir = imdir
