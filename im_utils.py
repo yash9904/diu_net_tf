@@ -21,8 +21,8 @@ class Augmentation:
         if not os.path.isdir(self.outdir_ms):
             os.mkdir(self.outdir_ms)
 
-    def save(self, image, file_name, dir):
-        cv2.imwrite(os.path.join(dir, file_name), image)
+    def save(self, image, file_name):
+        cv2.imwrite(file_name, image)
 
     def flip(self, hor = True, ver = True, fraction = 0):
         for i in tqdm(random.sample(self.imlist, int(fraction * len(self.imlist))), desc = 'Flipping...'):
