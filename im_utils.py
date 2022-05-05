@@ -27,10 +27,10 @@ class Augmentation:
     def flip(self, hor = True, ver = True, fraction = 0):
         for i in tqdm(random.sample(self.imlist, int(fraction * len(self.imlist))), desc = 'Flipping...'):
             im = cv2.imread(os.path.join(self.imdir, i + '.png'))
-            ms = cv2.imread(os.path.join(self.msdir, i + '.png'))
+            ms = cv2.imread(os.path.join(self.msdir, i + '.png'), cv2.IMREAD_GRAYSCALE)
             if hor:
                 self.save(cv2.flip(im, 1), os.path.join(self.outdir_im, i + 'hor.png'))
-                self.save(cv2.flip(ms, 1), os.path.join(self.outdir_ms, i + 'hor.png'))
+                self.save(cv2.flip(ms, 1), os.path.join(self.outdir_ms, i + 'hor.png'), cv2)
             if ver:
                 self.save(cv2.flip(im, 0), os.path.join(self.outdir_im, i + 'ver.png'))
                 self.save(cv2.flip(ms, 0), os.path.join(self.outdir_ms, i + 'ver.png'))
@@ -38,7 +38,7 @@ class Augmentation:
     def ChannelShuffle(self, fraction = 0):
         for i in tqdm(random.sample(self.imlist, int(fraction * len(self.imlist))), desc = 'Shuffling Channels...'):
             im = cv2.imread(os.path.join(self.imdir, i + '.png'))
-            ms = cv2.imread(os.path.join(self.msdir, i + '.png'))
+            ms = cv2.imread(os.path.join(self.msdir, i + '.png'), cv2.IMREAD_GRAYSCALE)
             ch = random.choice([0, 1, 2, 3, 4])
             if ch == 0:
                 im[:, :, 0], im[:, :, 1], im[:, :, 2] = (im[:, :, 1], im[:, :, 2], im[:, :, 0])
@@ -57,7 +57,7 @@ class Augmentation:
     def GaussianBlur(self, fraction = 0):
         for i in tqdm(random.sample(self.imlist, int(fraction * len(self.imlist))), desc = 'Applying Gaussian Blur...'):
             im = cv2.imread(os.path.join(self.imdir, i + '.png'))
-            ms = cv2.imread(os.path.join(self.msdir, i + '.png'))
+            ms = cv2.imread(os.path.join(self.msdir, i + '.png'), cv2.IMREAD_GRAYSCALE)
 
             im = cv2.GaussianBlur(im, (5, 5), cv2.BORDER_DEFAULT)
 
@@ -67,7 +67,7 @@ class Augmentation:
     def RandomRotate(self, fraction = 0):
         for i in tqdm(random.sample(self.imlist, int(fraction * len(self.imlist))), desc = 'Applying Gaussian Blur...'):
             im = cv2.imread(os.path.join(self.imdir, i + '.png'))
-            ms = cv2.imread(os.path.join(self.msdir, i + '.png'))
+            ms = cv2.imread(os.path.join(self.msdir, i + '.png'), cv2.IMREAD_GRAYSCALE)
 
             ch = random.choice([0, 1, 2])
             if ch == 0:
