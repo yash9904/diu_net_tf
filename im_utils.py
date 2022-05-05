@@ -30,7 +30,7 @@ class Augmentation:
             ms = cv2.imread(os.path.join(self.msdir, i + '.png'), cv2.IMREAD_GRAYSCALE)
             if hor:
                 self.save(cv2.flip(im, 1), os.path.join(self.outdir_im, i + 'hor.png'))
-                self.save(cv2.flip(ms, 1), os.path.join(self.outdir_ms, i + 'hor.png'), cv2)
+                self.save(cv2.flip(ms, 1), os.path.join(self.outdir_ms, i + 'hor.png'))
             if ver:
                 self.save(cv2.flip(im, 0), os.path.join(self.outdir_im, i + 'ver.png'))
                 self.save(cv2.flip(ms, 0), os.path.join(self.outdir_ms, i + 'ver.png'))
