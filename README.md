@@ -1,4 +1,4 @@
-# Dilated Inception U-Net for Nuclei Segmentation in Multi-Organ Images
+# Dilated Inception U-Net for Nuclei Segmentation in Multi-Organ Histology Images
 ### Dilated Convolutions
 ![dilated convolutions white bg](https://user-images.githubusercontent.com/86224563/196469554-7f386b31-9ea5-491d-bcf0-2e9f0e2fe46b.png)
 
