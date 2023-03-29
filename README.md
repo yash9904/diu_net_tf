@@ -7,3 +7,7 @@
 
 ### Dilated Inception U-Net
 ![diunet white bg](https://user-images.githubusercontent.com/86224563/196469722-d477c52d-9ab0-440e-b7c1-ce1142692bb9.png)
+
+### Test Scores
+- AJI: 0.6877
+- DICE: 0.8183
